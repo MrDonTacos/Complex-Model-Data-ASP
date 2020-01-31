@@ -1,0 +1,48 @@
+@model Tienda_Musica.Models.Album
+
+@{
+    ViewData ["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+	    src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+    <script src="Js/jQueryHelper.js"></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js'></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputName">Titulo</label>
+            <input type="text" class="form-control" data-bind="value: name" id="inputEmail4">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputGenre">Precio</label>
+            <input type="text" class="form-control" data-bind="value: genre" id="inputPassword4">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Fecha de lanzamiento</label>
+          <input type="text" class="form-control" id="inputAddress" data-bind="value: image" placeholder="">
+        </div>
+        <div class="form-group">
+          <label for="inputCreation">Artista</label>
+          <input type="date" class="form-control" id="inputAddress2" data-bind="value: date" placeholder="">
+        </div>
+    </div>
+        <button type="submit" class="btn btn-primary" data-bind="click:save">Sign in</button>
+      </form>
+</body>
+
+<script src="Js/Create.js"></script>
+</html>

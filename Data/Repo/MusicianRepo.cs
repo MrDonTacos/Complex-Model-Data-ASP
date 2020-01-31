@@ -16,8 +16,9 @@ namespace Tienda_Musica.Data.Repo
             _context = context;
         }
 
+        
         private async Task <bool> Exist (Musician artist){
-            return await _context.Musician.AnyAsync(w => w.Id == artist.Id && w.Name != artist.Name);
+            return await _context.Musician.AnyAsync(w => w.Name == artist.Name && w.Id != artist.Id);
         } 
         public async Task Create(Musician artist)
         {
@@ -30,6 +31,8 @@ namespace Tienda_Musica.Data.Repo
             };
             try
             {
+                if(await Exist(artist))
+                throw new Exception ("El artista ya existe en la database");
                 await _context.Musician.AddAsync(_artist);
                 await _context.SaveChangesAsync();
             }catch(Exception aEx)

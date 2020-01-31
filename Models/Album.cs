@@ -30,6 +30,8 @@ namespace Tienda_Musica.Models
 
         [Display(Name = "Genero")]
         public string Genre {get; set;}
+
+        public int MusicianRefId {get;set;}
         
         [ForeignKey("MusicianRefId")]
         public Musician Musician{get;set;}

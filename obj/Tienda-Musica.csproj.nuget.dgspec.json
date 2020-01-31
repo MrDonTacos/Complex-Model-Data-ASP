@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MrDonTacos-Rocio\\Tienda-Musica\\Tienda-Musica.csproj": {}
+    "C:\\Users\\Paradigma 3\\Documents\\SaulProyectos\\Complex-Model-Data-ASP\\Tienda-Musica.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MrDonTacos-Rocio\\Tienda-Musica\\Tienda-Musica.csproj": {
+    "C:\\Users\\Paradigma 3\\Documents\\SaulProyectos\\Complex-Model-Data-ASP\\Tienda-Musica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MrDonTacos-Rocio\\Tienda-Musica\\Tienda-Musica.csproj",
+        "projectUniqueName": "C:\\Users\\Paradigma 3\\Documents\\SaulProyectos\\Complex-Model-Data-ASP\\Tienda-Musica.csproj",
         "projectName": "Tienda-Musica",
-        "projectPath": "C:\\Users\\MrDonTacos-Rocio\\Tienda-Musica\\Tienda-Musica.csproj",
-        "packagesPath": "C:\\Users\\MrDonTacos-Rocio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MrDonTacos-Rocio\\Tienda-Musica\\obj\\",
+        "projectPath": "C:\\Users\\Paradigma 3\\Documents\\SaulProyectos\\Complex-Model-Data-ASP\\Tienda-Musica.csproj",
+        "packagesPath": "C:\\Users\\Paradigma 3\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Paradigma 3\\Documents\\SaulProyectos\\Complex-Model-Data-ASP\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MrDonTacos-Rocio\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Paradigma 3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -75,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

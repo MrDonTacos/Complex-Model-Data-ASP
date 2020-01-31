@@ -21,6 +21,9 @@ namespace Tienda_Musica.Data.Repo{
         }
         public async Task Create(Album album)
         {
+            
+                
+            
             Album alb = new Album(){
                     Id = album.Id,
                     Title = album.Title,
@@ -29,7 +32,7 @@ namespace Tienda_Musica.Data.Repo{
                     ReleaseDate = album.ReleaseDate,
                     Time = album.Time,
                     Genre = album.Genre,
-                    Musician = album.Musician
+                    MusicianRefId = album.MusicianRefId
                 };
             try
             {
@@ -83,7 +86,7 @@ namespace Tienda_Musica.Data.Repo{
                     ReleaseDate = s.ReleaseDate,
                     Time = s.Time,
                     Genre = s.Genre,
-                    Musician = s.Musician
+                    MusicianRefId = s.MusicianRefId
 
                }).ToList();
 
@@ -111,7 +114,7 @@ namespace Tienda_Musica.Data.Repo{
                     ReleaseDate = _alb.ReleaseDate,
                     Time = _alb.Time,
                     Genre = _alb.Genre,
-                    Musician = _alb.Musician
+                    MusicianRefId = _alb.MusicianRefId
                     
                 };
             }catch(Exception aEx)
@@ -155,7 +158,7 @@ namespace Tienda_Musica.Data.Repo{
                 _album.ReleaseDate = album.ReleaseDate;
                 _album.Time = album.Time;
                 _album.Genre = album.Genre;
-                _album.Musician = album.Musician;
+                _album.MusicianRefId = album.MusicianRefId;
 
                 _context.Update(_album);
                 await _context.SaveChangesAsync();

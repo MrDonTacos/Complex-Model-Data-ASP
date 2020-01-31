@@ -49,6 +49,7 @@ namespace Tienda_Musica.Controllers
         }
 
         [HttpPut]
+
         public async Task<IActionResult> Update(Musician musician, int Id)
         {
             try
