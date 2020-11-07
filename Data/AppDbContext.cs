@@ -29,6 +29,7 @@ namespace schoolpractice.Context
         public DbSet<Experiencia> experiencia { get; set; }
         public DbSet<Nacionalidad> nacionalidad { get; set; }
         public DbSet<MantenimientoBolsa> mantenimiento_bolsa {get; set;}
+        public DbSet<Persona> persona {get; set;}
 
     }
 }
