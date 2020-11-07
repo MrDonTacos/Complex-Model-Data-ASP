@@ -7,9 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Tienda_Musica.Data.IRepo;
-using Tienda_Musica.Data.Repo;
-using Tienda_Musica.Data;
+using schoolpractice.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace Tienda_Musica
@@ -26,11 +24,9 @@ namespace Tienda_Musica
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           services.AddControllersWithViews();
-            services.AddDbContext<TiendaMusicaContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("TiendaMusicaContext")));
-            services.AddScoped<IAlbum, AlbumRepo>();
-            services.AddScoped<IMusician, MusicianRepo>();
+            services.AddControllers();
+            services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("ConexionReport")));
              services.AddCors(options =>
                 {
                     options.AddDefaultPolicy(builder =>
@@ -63,9 +59,7 @@ namespace Tienda_Musica
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }

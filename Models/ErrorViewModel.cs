@@ -1,6 +1,6 @@
 using System;
 
-namespace Tienda_Musica.Models
+namespace schoolpractice.Models
 {
     public class ErrorViewModel
     {

@@ -8549,11 +8549,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Paradigma 3\\Documents\\SaulProyectos\\Complex-Model-Data-ASP\\Tienda-Musica.csproj",
+      "projectUniqueName": "C:\\Users\\Paradigma 3\\Documents\\Complex-Model-Data-ASP\\Tienda-Musica.csproj",
       "projectName": "Tienda-Musica",
-      "projectPath": "C:\\Users\\Paradigma 3\\Documents\\SaulProyectos\\Complex-Model-Data-ASP\\Tienda-Musica.csproj",
+      "projectPath": "C:\\Users\\Paradigma 3\\Documents\\Complex-Model-Data-ASP\\Tienda-Musica.csproj",
       "packagesPath": "C:\\Users\\Paradigma 3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Paradigma 3\\Documents\\SaulProyectos\\Complex-Model-Data-ASP\\obj\\",
+      "outputPath": "C:\\Users\\Paradigma 3\\Documents\\Complex-Model-Data-ASP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -8568,7 +8568,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
