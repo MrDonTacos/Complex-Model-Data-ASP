@@ -51,9 +51,13 @@ namespace schoolpractice.Controllers
         {
             try
             {
+                var documentoLocal = context.documento.FirstOrDefault(m => m.id_documento == documento.id_documento);
+                if (documentoLocal != null)
+                throw new Exception("El ID ya fue registrado");
+
                 context.documento.Add(documento);
                 context.SaveChanges();
-                return CreatedAtRoute("GetDepartamento", new { idDocumento = documento.id_documento }, documento);
+                return CreatedAtRoute("GetDocumento", new { idDocumento = documento.id_documento }, documento);
             }
             catch (Exception ex)
             {
@@ -70,7 +74,7 @@ namespace schoolpractice.Controllers
                 {
                     context.Entry(documento).State = EntityState.Modified;
                     context.SaveChanges();
-                    return CreatedAtRoute("GetCurso", new { idCurso = documento.id_documento }, documento);
+                    return CreatedAtRoute("GetDocumento", new { idCurso = documento.id_documento }, documento);
                 }
                 else
                 {
