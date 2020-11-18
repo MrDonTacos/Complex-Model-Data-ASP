@@ -57,7 +57,8 @@ namespace schoolpractice.Controllers
 
                 context.documento.Add(documento);
                 context.SaveChanges();
-                return CreatedAtRoute("GetDocumento", new { idDocumento = documento.id_documento }, documento);
+                return Ok("Se ha registrado Correctamente");
+                //return CreatedAtRoute("GetDocumento", new  { idDocumento = documento.id_documento }, documento);
             }
             catch (Exception ex)
             {
