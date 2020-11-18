@@ -51,9 +51,22 @@ namespace schoolpractice.Controllers
         {
             try
             {
+                if (curso.id_curso == null || curso.id_curso == "")
+                throw new Exception("No puedes ingresar un ID nulo.");
+
+                if (curso.id_curso.Length <= 3)
+                throw new Exception("El ID no puede ser menor a 4 digitos.");
+
+                if (curso.nom_curso == null|| curso.nom_curso == "")
+                throw new Exception("No puedes ingresar un nombre en nulo.");
+
+                var cursoLocal = context.curso.FirstOrDefault(m => m.id_curso == curso.id_curso);
+                if (cursoLocal != null)
+                throw new Exception("El ID " + cursoLocal.id_curso + " ya fue registrado.");
+
                 context.curso.Add(curso);
                 context.SaveChanges();
-                return CreatedAtRoute("GetDepartamento", new { idDepto = curso.id_curso}, curso);
+                return Ok("Se ha registrado Correctamente");
             }
             catch (Exception ex)
             {
