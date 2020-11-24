@@ -51,9 +51,22 @@ namespace schoolpractice.Controllers
         {
             try
             {
+                if (perfil.id_perfil == null || perfil.id_perfil == "")
+                throw new Exception("No puedes ingresar un ID nulo.");
+
+                if (perfil.id_perfil.Length <= 3)
+                throw new Exception("El ID no puede ser menor a 4 digitos.");
+
+                if (perfil.perfil == null|| perfil.perfil == "")
+                throw new Exception("No puedes ingresar un nombre en nulo.");
+
+                var perfilLocal = context.perfil.FirstOrDefault(m => m.id_perfil == perfil.id_perfil);
+                if (perfilLocal != null)
+                throw new Exception("El ID " + perfilLocal.id_perfil + " ya fue registrado.");
+
                 context.perfil.Add(perfil);
                 context.SaveChanges();
-                return CreatedAtRoute("GetDepartamento", new { idPerfil = perfil.id_perfil }, perfil);
+                return Ok("Se ha registrado Correctamente");
             }
             catch (Exception ex) 
             {
@@ -66,16 +79,18 @@ namespace schoolpractice.Controllers
         {
             try
             {
-                if (perfil.id_perfil == idPerfil)
-                {
-                    context.Entry(perfil).State = EntityState.Modified;
-                    context.SaveChanges();
-                    return CreatedAtRoute("GetPerfil", new { idPerfil = perfil.id_perfil }, perfil);
-                }
-                else 
-                {
-                    return BadRequest();
-                }
+                if ((idPerfil == "" || perfil.id_perfil == "") || (idPerfil == null || perfil.id_perfil == null))
+                throw new Exception("No puedes enviar enviar una clave vacia");
+
+                if (idPerfil.Length <= 3 && perfil.id_perfil.Length <= 3)
+                throw new Exception("Has ingresado la clave mal, debe ser de 4 digitos.");
+
+                if (idPerfil != perfil.id_perfil)
+                throw new Exception("Las claves no corresponden.");
+
+                context.Entry(perfil).State = EntityState.Modified;
+                context.SaveChanges();
+                return Ok("Se ha modificado correctamente el perfil " + perfil.perfil);
             }
             catch (Exception ex)
             {
@@ -88,17 +103,19 @@ namespace schoolpractice.Controllers
         {
             try
             {
-                var perfil = context.perfil.FirstOrDefault(d => d.id_perfil == idPerfil);
-                if (perfil != null)
-                {
-                    context.perfil.Remove(perfil);
-                    context.SaveChanges();
-                    return Ok(idPerfil);
-                }
-                else
-                {
-                    return BadRequest();
-                }
+                if (idPerfil.Length <= 3)
+                throw new Exception("Has ingresado una clave invalida.");
+
+                if (idPerfil == null || idPerfil == "" || idPerfil == "null")
+                throw new Exception("No puedes enviar un registro vacio");
+
+                var perfilLocal = context.perfil.FirstOrDefault(d => d.id_perfil == idPerfil);
+                if (perfilLocal == null )
+                throw new Exception("No se ha encontrado el curso con clave " + idPerfil);
+
+                context.perfil.Remove(perfilLocal);
+                context.SaveChanges();
+                return Ok("Se ha eliminado correctamente.");
             }
             catch (Exception ex) 
             {
