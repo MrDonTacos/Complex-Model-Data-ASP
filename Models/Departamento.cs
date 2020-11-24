@@ -9,7 +9,7 @@ namespace schoolpractice.Models
     public class Departamento
     {
         [Key]
-        public string id_depto { get; set; }
-        public string nom_depto { get; set; }
+        public string id_departamento { get; set; }
+        public string nom_departamento { get; set; }
     }
 }
