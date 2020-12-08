@@ -50,13 +50,41 @@ namespace schoolpractice.Controllers
 
         // POST api/<MantenimientoBolsaController>
         [HttpPost]
-        public ActionResult Post([FromBody] MantenimientoBolsa matenimiento)
+        public ActionResult Post([FromBody] MantenimientoFuerte matenimiento)
         {
             try
             {
-                context.mantenimiento_bolsa.Add(matenimiento);
+                Persona persona = new Persona();
+                MantenimientoBolsa bolsa = new MantenimientoBolsa ();
+                persona = new Persona{
+                    curp = matenimiento.CURP,
+                    nombre = matenimiento.Nombre,
+                    apellido_materno = matenimiento.APaterno,
+                    apellid_paterno = matenimiento.AMaterno,
+                    id_fk_sexo = matenimiento.Sexo,
+                    fecha_nacimiento = matenimiento.FechaNacimiento,
+                    direccion = matenimiento.Direccion,
+                    telefono = matenimiento.Teléfono,
+                    id_fk_nacionalidad = matenimiento.Nacionalidad,
+                };
+                
+               var p = context.persona.Add(persona);
+
                 context.SaveChanges();
-                return CreatedAtRoute("GetMantenimientoBolsa", new {id=matenimiento.id }, matenimiento);//regresa valores guardados y obtenemos el valor autoincrementable
+                bolsa = new MantenimientoBolsa{
+                    id_persona = matenimiento.CURP,
+                    id_perfil = matenimiento.Perfil,
+                    id_experiencia = matenimiento.Experiencia,
+                    id_escolaridad = matenimiento.Escolaridad,
+                    id_estatus = matenimiento.Estatus,
+                    id_documentos = null,
+                    observaciones = matenimiento.Observaciones,
+                    fecha_ingreso = matenimiento.FechaIngreso
+                };
+
+                var EntityBolsa = context.mantenimiento_bolsa.Add(bolsa);
+                context.SaveChanges();
+                return CreatedAtRoute("GetMantenimientoBolsa", new {id=EntityBolsa.Entity.id }, matenimiento);//regresa valores guardados y obtenemos el valor autoincrementable
             }
             catch (Exception ex)
             {
@@ -66,13 +94,39 @@ namespace schoolpractice.Controllers
 
         // PUT api/<MantenimientoBolsaController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] MantenimientoBolsa matenimiento)
+        public ActionResult Put(int id, [FromBody] MantenimientoFuerte matenimiento)
         {
             try
             {
                 if (matenimiento.id == id)
                 {
-                    context.Entry(matenimiento).State = EntityState.Modified;
+                      Persona persona = new Persona();
+                MantenimientoBolsa bolsa = new MantenimientoBolsa ();
+                persona = new Persona{
+                    curp = matenimiento.CURP,
+                    nombre = matenimiento.Nombre,
+                    apellido_materno = matenimiento.APaterno,
+                    apellid_paterno = matenimiento.AMaterno,
+                    id_fk_sexo = matenimiento.Sexo,
+                    fecha_nacimiento = matenimiento.FechaNacimiento,
+                    direccion = matenimiento.Direccion,
+                    telefono = matenimiento.Teléfono,
+                    id_fk_nacionalidad = matenimiento.Nacionalidad,
+                };
+
+                bolsa = new MantenimientoBolsa{
+                    id_persona = matenimiento.CURP,
+                    id_perfil = matenimiento.Perfil,
+                    id_experiencia = matenimiento.Experiencia,
+                    id_escolaridad = matenimiento.Escolaridad,
+                    id_estatus = matenimiento.Estatus,
+                    id_documentos = null,
+                    observaciones = matenimiento.Observaciones,
+                    fecha_ingreso = matenimiento.FechaIngreso
+                };
+
+                    context.Entry(persona).State = EntityState.Modified;
+                    context.Entry(bolsa).State = EntityState.Modified;
                     context.SaveChanges();
                     return Ok();
                    // return CreatedAtRoute("GetMantenimientoBolsa", new { id = matenimiento.id }, mantenimiento);//regresa valores guardados y obtenemos el valor autoincrementable

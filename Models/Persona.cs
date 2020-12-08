@@ -13,10 +13,10 @@ namespace schoolpractice.Models
         public String nombre {get;set;}
         public String apellido_materno {get;set;}
         public String apellid_paterno {get;set;}
-        public int? id_fk_sexo {get;set;}
+        public String id_fk_sexo {get;set;}
         public DateTime? fecha_nacimiento {get;set;}
         public String direccion {get;set;}
         public String telefono {get;set;}
-        public int? id_fk_nacionalidad {get;set;}
+        public String id_fk_nacionalidad {get;set;}
     }
 }
