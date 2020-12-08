@@ -10,7 +10,7 @@ using schoolpractice.Models;
 namespace schoolpractice.Controllers
 {
     [Route("api/[controller]")]
-    [ApiContrller]
+    [ApiController]
     public class PersonaController: ControllerBase
     {
         private readonly AppDbContext context;
@@ -24,7 +24,7 @@ namespace schoolpractice.Controllers
         {
             try
             {
-                return Ok(context.persona.ToList())
+                return Ok(context.persona.ToList());
             }
             catch (Exception ex)
             {
@@ -38,8 +38,8 @@ namespace schoolpractice.Controllers
         {
             try
             {
-                var personas = context.persona.FirsOrDefault(g => g.id == id);
-                return Ok(personas);
+                // var personas = context.persona.FirsOrDefault(g => g.curp == id);
+                return Ok();
             }
             catch (Exception ex) 
             {
@@ -55,7 +55,7 @@ namespace schoolpractice.Controllers
             {
                 context.persona.Add(persona);
                 context.SaveChanges();
-                return CreatedAtRoute("GetPersona", new {id = persona.id }, persona);//regresa valores guardados y obtenemos el valor autoincrementable
+                return CreatedAtRoute("GetPersona", new {curp = persona.curp }, persona);//regresa valores guardados y obtenemos el valor autoincrementable
             }
             catch (Exception ex)
             {
@@ -65,15 +65,15 @@ namespace schoolpractice.Controllers
 
         // PUT api/<persona>/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Persona persona)
+        public ActionResult Put(string id, [FromBody] Persona persona)
         {
             try
             {
-                if (persona.id == id)
+                if (persona.curp == id)
                 {
                     context.Entry(persona).State = EntityState.Modified;
                     context.SaveChanges();
-                    return CreatedAtRoute("GetPersona", new { id = persona.id }, persona);
+                    return CreatedAtRoute("GetPersona", new { curp = persona.curp }, persona);
                 }
                 else 
                 {
@@ -89,11 +89,11 @@ namespace schoolpractice.Controllers
 
         // DELETE api/<persona>/5
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
             try
             {
-                var persona = context.persona.FirstOrDefault(m => m.id == id);
+                var persona = context.persona.FirstOrDefault(m => m.curp == id);
                 if (persona != null) 
                 {
                     context.persona.Remove(persona);

@@ -55,6 +55,7 @@ namespace schoolpractice.Controllers
         {
             try
             {
+                materia.clvmateria = materia.id.ToString();
                 context.materia.Add(materia);//agrega en tabla
                 context.SaveChanges();//guarda
                 return CreatedAtRoute("GetMateria", new {id=materia.id }, materia);//regresa valores guardados y obtenemos el valor autoincrementable
@@ -71,6 +72,7 @@ namespace schoolpractice.Controllers
         {
             try//se busca por id la comparativa a eliminar
             {
+                materia.clvmateria = materia.id.ToString();
                 if (materia.id == id)
                 {
                     context.Entry(materia).State = EntityState.Modified;

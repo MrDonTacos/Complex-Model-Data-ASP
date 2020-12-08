@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using schoolpractice.Context;
 using schoolpractice.Models;
 
+
 namespace schoolpractice.Controllers
 {
     [Route("api/[controller]")]
@@ -24,7 +25,7 @@ namespace schoolpractice.Controllers
         {
             try
             {
-                return Ok(context.mantenimiento_bolsa.ToList())
+                return Ok(context.mantenimiento_bolsa.ToList());
             }
             catch (Exception ex)
             {
@@ -38,8 +39,8 @@ namespace schoolpractice.Controllers
         {
             try
             {
-                var mantenimiento = context.mantenimiento_bolsa.FirsOrDefault(g => g.id == id);
-                return Ok(mantenimiento);
+                // var mantenimiento = context.mantenimiento_bolsa.FirsOrDefault(g => g.id == id);
+                return Ok();
             }
             catch (Exception ex) 
             {
@@ -71,9 +72,10 @@ namespace schoolpractice.Controllers
             {
                 if (matenimiento.id == id)
                 {
-                    context.Entry(materia).State = EntityState.Modified;
+                    context.Entry(matenimiento).State = EntityState.Modified;
                     context.SaveChanges();
-                    return CreatedAtRoute("GetMantenimientoBolsa", new { id = matenimiento.id }, mantenimiento);//regresa valores guardados y obtenemos el valor autoincrementable
+                    return Ok();
+                   // return CreatedAtRoute("GetMantenimientoBolsa", new { id = matenimiento.id }, mantenimiento);//regresa valores guardados y obtenemos el valor autoincrementable
                 }
                 else 
                 {

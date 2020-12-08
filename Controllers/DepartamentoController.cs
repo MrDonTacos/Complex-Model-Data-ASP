@@ -24,7 +24,8 @@ namespace schoolpractice.Controllers
         {
             try
             {
-                return Ok(context.departamento.ToList());
+                var Entity = context.departamento.ToList();
+                return Ok(Entity);
             }
             catch (Exception ext) 
             {
